@@ -1,13 +1,13 @@
-import React from 'react';
 import Header from '../Header/Header';
 import Hero from '../Hero/Hero';
 import Projects from '../Projects/Projects';
 import Skills from '../Skills/Skills';
 import Contact from '../Contact/Contact';
 import Footer from '../Footer/Footer';
+import BackgroundMusic from '../BackgroundMusic/BackgroundMusic';
 import './AppMain.css';
 
-function App() {
+function AppMain() {
   return (
     <div className="AppMain">
       <Header />
@@ -16,8 +16,9 @@ function App() {
       <Skills />
       <Contact />
       <Footer />
-    </div>
+      <BackgroundMusic />
+      </div>
   );
 }
 
-export default App;
+export default AppMain;

@@ -1,8 +1,6 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AppMain from './components/AppMain/AppMain';
 import MatrixRain from './components/MatrixRain/MatrixRain';
-import './App.css';
 
 function App() {
   return (
