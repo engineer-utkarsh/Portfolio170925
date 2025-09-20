@@ -12,7 +12,7 @@ const Hero = () => {
       <div className="hero-image">
 <img 
           src="utkarshimage.jpg" 
-          alt="Utkarsh Shukla" 
+          alt="ushukla" 
           className="profile-photo"
         />      </div>
     </section>

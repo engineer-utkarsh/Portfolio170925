@@ -1,22 +1,19 @@
 import React from 'react';
-import Header from './components/Header/Header';
-import Hero from './components/Hero/Hero';
-import Projects from './components/Projects/Projects';
-import Skills from './components/Skills/Skills';
-import Contact from './components/Contact/Contact';
-import Footer from './components/Footer/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AppMain from './components/AppMain/AppMain';
+import MatrixRain from './components/MatrixRain/MatrixRain';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Hero />
-      <Projects />
-      <Skills />
-      <Contact />
-      <Footer />
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/" element={<MatrixRain />} />
+          <Route path="/AppMain" element={<AppMain />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
