@@ -10,9 +10,9 @@ const Hero = () => {
         {/* <button className="cta-button">View My Work</button> */}
       </div>
       <div className="hero-image">
-<img 
-          src="utkarshimage.jpg" 
-          alt="ushukla" 
+        <img
+          src="/UtkarshProfileimage.jpg"
+          alt="ushukla"
           className="profile-photo"
         />      </div>
     </section>
