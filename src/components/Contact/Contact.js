@@ -212,7 +212,7 @@ const Contact = () => {
                 Preparing Email...
               </>
             ) : (
-              'Open Email Client'
+              'Send Email '
             )}
           </button>
 
