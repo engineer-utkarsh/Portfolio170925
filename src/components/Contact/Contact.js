@@ -231,14 +231,6 @@ const Contact = () => {
 
         <div className="contact-info">
           <div className="info-item">
-            <h4>Direct Email</h4>
-            <p>
-              <a href="mailto:mcautkarsh@gmail.com" className="email-link">
-                mcautkarsh@gmail.com
-              </a>
-            </p>
-          </div>
-          <div className="info-item">
             <h4>Phone</h4>
             <p>+91 7408217943</p>
           </div>
@@ -250,10 +242,10 @@ const Contact = () => {
 
         <div className="alternative-contact">
           <p className="alternative-text">
-            Prefer to contact me directly? Email me at{' '}
+            Prefer to contact me directly? Feel free to reach out via phone or{' '}
             <a href="mailto:mcautkarsh@gmail.com" className="direct-email-link">
-              mcautkarsh@gmail.com
-            </a>
+              send me a direct email
+            </a>.
           </p>
         </div>
       </div>

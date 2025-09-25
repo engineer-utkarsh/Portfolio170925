@@ -355,7 +355,7 @@
 
 .contact-info {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   padding-top: 50px;
   border-top: 1px solid rgba(225, 229, 233, 0.8);
@@ -417,40 +417,9 @@
   color: #666;
   font-size: 1rem;
   margin: 0;
-}
-
-.email-link,
-.direct-email-link {
-  color: #667eea;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  position: relative;
-  padding: 2px 4px;
-  border-radius: 4px;
-}
-
-.email-link::after,
-.direct-email-link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #667eea, #764ba2);
-  transition: width 0.3s ease;
-}
-
-.email-link:hover,
-.direct-email-link:hover {
-  color: #764ba2;
-  background: rgba(102, 126, 234, 0.1);
-}
-
-.email-link:hover::after,
-.direct-email-link:hover::after {
-  width: 100%;
+  overflow: visible;
+  word-wrap: break-word;
+  letter-spacing: 0.5px;
 }
 
 .alternative-contact {
@@ -464,6 +433,45 @@
   color: #666;
   font-size: 1.1rem;
   font-weight: 500;
+  overflow: visible;
+  word-wrap: break-word;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+}
+
+.direct-email-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 2px 4px;
+  margin: -2px -4px;
+  border-radius: 4px;
+  display: inline-block;
+  letter-spacing: 0.5px;
+  font-family: inherit;
+}
+
+.direct-email-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transition: width 0.3s ease;
+}
+
+.direct-email-link:hover {
+  color: #764ba2;
+  background: rgba(102, 126, 234, 0.1);
+  text-decoration: none;
+}
+
+.direct-email-link:hover::after {
+  width: 100%;
 }
 
 /* Floating animation for container */
@@ -475,6 +483,31 @@
   0%, 100% { transform: translateY(0) rotate(0deg); }
   33% { transform: translateY(-5px) rotate(0.2deg); }
   66% { transform: translateY(5px) rotate(-0.2deg); }
+}
+
+/* Loading bar animation for form submission */
+@keyframes loadingBar {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+
+.submit-button.submitting::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, white, transparent);
+  animation: loadingBar 1.5s ease-in-out infinite;
+}
+
+/* Ensure all text containers don't cut off content */
+.info-item,
+.alternative-contact,
+.contact-header {
+  overflow: visible;
 }
 
 /* Responsive Design with animations */
@@ -527,6 +560,11 @@
   .info-item:hover {
     transform: translateY(-2px);
   }
+
+  .direct-email-link {
+    word-break: break-all;
+    hyphens: auto;
+  }
 }
 
 @media (max-width: 480px) {
@@ -560,22 +598,26 @@
     padding: 16px;
     font-size: 1.1rem;
   }
+
+  .alternative-text {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .direct-email-link {
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+  }
 }
 
-/* Loading bar animation for form submission */
-@keyframes loadingBar {
-  0% { transform: translateX(-100%); }
-  50% { transform: translateX(0%); }
-  100% { transform: translateX(100%); }
+/* Additional safety measures for text display */
+.info-item p {
+  padding: 2px 0;
+  margin: 0;
+  line-height: 1.4;
 }
 
-.submit-button.submitting::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, white, transparent);
-  animation: loadingBar 1.5s ease-in-out infinite;
+.alternative-text {
+  line-height: 1.6;
+  padding: 2px 0;
 }
