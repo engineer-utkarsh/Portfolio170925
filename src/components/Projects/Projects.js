@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Projects.css';
 
 const Projects = () => {
@@ -23,21 +23,49 @@ const Projects = () => {
     }
   ];
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Trigger animation after component mounts
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section id="projects" className="projects">
-      <h2>My Projects</h2>
-      <div className="projects-grid">
-        {projects.map(project => (
-          <div key={project.id} className="project-card">
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-            <div className="technologies">
-              {project.technologies.map((tech, index) => (
-                <span key={index} className="tech-tag">{tech}</span>
-              ))}
+      <div className="container">
+        <h2 className="section-title">My Projects</h2>
+        <div className={`projects-grid ${isVisible ? 'visible' : ''}`}>
+          {projects.map((project, index) => (
+            <div 
+              key={project.id} 
+              className="project-card"
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
+              <div className="card-inner">
+                <div className="project-header">
+                  <h3>{project.title}</h3>
+                  <div className="project-indicator"></div>
+                </div>
+                <p>{project.description}</p>
+                <div className="technologies">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span 
+                      key={techIndex} 
+                      className="tech-tag"
+                      style={{ animationDelay: `${(index * 0.2) + (techIndex * 0.1) + 0.5}s` }}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
