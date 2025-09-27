@@ -55,7 +55,7 @@ const Header = () => {
     <header className={headerClass}>
       <nav className="nav">
         <div className="logo">
-          <span>Utkarsh Portfolio</span>
+          <span>Utkarsh Shukla</span>
         </div>
         
         <div 
