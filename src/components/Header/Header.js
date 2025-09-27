@@ -20,7 +20,7 @@ const Header = () => {
     };
 
     const handleResize = () => {
-      if (window.innerWidth > 768) {
+      if (window.innerWidth > 720) {
         closeMenu();
       }
     };
@@ -36,12 +36,15 @@ const Header = () => {
 
   useEffect(() => {
     if (isMenuOpen) {
+      document.body.classList.add('menu-open');
       document.body.style.overflow = 'hidden';
     } else {
+      document.body.classList.remove('menu-open');
       document.body.style.overflow = 'unset';
     }
 
     return () => {
+      document.body.classList.remove('menu-open');
       document.body.style.overflow = 'unset';
     };
   }, [isMenuOpen]);
@@ -59,6 +62,7 @@ const Header = () => {
           className={`menu-toggle ${isMenuOpen ? 'active' : ''}`}
           onClick={toggleMenu}
           aria-label="Toggle menu"
+          aria-expanded={isMenuOpen}
         >
           <span></span>
           <span></span>
@@ -76,6 +80,7 @@ const Header = () => {
         <div 
           className={`menu-overlay ${isMenuOpen ? 'active' : ''}`}
           onClick={closeMenu}
+          aria-hidden="true"
         ></div>
       </nav>
     </header>

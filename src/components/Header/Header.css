@@ -1,3 +1,15 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 .header {
   background: rgba(117, 247, 3, 0.95);
   backdrop-filter: blur(10px);
@@ -22,18 +34,16 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
 
 .logo {
-  font-size: 3.5rem;
-  font-weight: 540;
+  font-size: 1.8rem;
+  font-weight: 700;
   color: #2605fd;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  z-index: 1002;
+  position: relative;
 }
-
-
 
 .nav-links {
   display: flex;
@@ -47,7 +57,7 @@
   color: #ebf1f1;
   text-decoration: none;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   padding: 0.5rem 1rem;
   border-radius: 8px;
   transition: all 0.3s ease;
@@ -82,15 +92,18 @@
   cursor: pointer;
   padding: 0.5rem;
   z-index: 1002;
+  background: transparent;
+  border: none;
 }
 
 .menu-toggle span {
   width: 25px;
-  height: 2px;
+  height: 3px;
   background: #2c3e50;
   margin: 3px 0;
   transition: all 0.3s ease;
   border-radius: 2px;
+  display: block;
 }
 
 .menu-overlay {
@@ -101,19 +114,19 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
+  z-index: 998;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-/* Mobile Responsive */
-@media screen and (max-width: 768px) {
+/* Mobile Responsive - Samsung Galaxy A13 has 720x1600 resolution */
+@media screen and (max-width: 720px) {
   .header {
-    padding: 1rem;
+    padding: 0.8rem 1rem;
   }
 
   .header.scrolled {
-    padding: 0.8rem 1rem;
+    padding: 0.6rem 1rem;
   }
 
   .menu-toggle {
@@ -124,17 +137,21 @@
     position: fixed;
     top: 0;
     right: -100%;
-    width: 280px;
+    width: 75%;
+    max-width: 300px;
     height: 100vh;
-    background: white;
+    background: #ffffff;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     gap: 0;
-    padding: 80px 2rem 2rem;
-    transition: right 0.3s ease;
+    padding: 80px 1.5rem 2rem;
+    transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     z-index: 1001;
-    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+    margin: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .nav-links.active {
@@ -144,23 +161,30 @@
   .nav-links li {
     width: 100%;
     margin: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
   }
 
   .nav-links a {
     display: block;
-    padding: 1rem 0;
+    padding: 1.2rem 0;
     font-size: 1.1rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     width: 100%;
     border-radius: 0;
+    color: #2c3e50;
+    font-weight: 600;
   }
 
   .nav-links a::after {
     display: none;
   }
 
-  .nav-links a:hover {
-    background: rgba(52, 152, 219, 0.05);
+  .nav-links a:hover,
+  .nav-links a:focus {
+    background: rgba(52, 152, 219, 0.1);
     color: #3498db;
     padding-left: 1rem;
   }
@@ -178,6 +202,7 @@
 
   .menu-toggle.active span:nth-child(2) {
     opacity: 0;
+    transform: translateX(-10px);
   }
 
   .menu-toggle.active span:nth-child(3) {
@@ -186,25 +211,24 @@
   }
 
   .logo {
-    font-size: 1.5rem;
-    z-index: 1002;
-    position: relative;
+    font-size: 1.3rem;
   }
 }
 
-@media screen and (max-width: 480px) {
+/* Extra small devices */
+@media screen and (max-width: 360px) {
   .nav-links {
-    width: 100%;
-    padding: 80px 1.5rem 2rem;
+    width: 85%;
+    padding: 80px 1rem 2rem;
   }
 
   .logo {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   .nav-links a {
     font-size: 1rem;
-    padding: 0.8rem 0;
+    padding: 1rem 0;
   }
 }
 
@@ -212,4 +236,16 @@
 .header.menu-open {
   background: white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.header.menu-open .logo {
+  color: #2c3e50;
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+  overflow: hidden;
+  height: 100%;
+  position: fixed;
+  width: 100%;
 }
