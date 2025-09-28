@@ -48,6 +48,7 @@
 
 @media (max-width: 480px) {
   .demo-container {
+    max-width: 100%;
     height: 250px;
     padding: 0 20px 40px 20px;
   }
