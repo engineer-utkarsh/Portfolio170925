@@ -16,8 +16,8 @@ function AppMain() {
       <SplashCursor />
       <Header />
       <Hero />
-      <Projects />
       <IconCloudDemo />
+      <Projects />
       <Skills />
       <Contact />
       <Location />
