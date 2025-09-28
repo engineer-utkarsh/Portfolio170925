@@ -6,6 +6,7 @@ import Contact from '../Contact/Contact';
 import Footer from '../Footer/Footer';
 import BackgroundMusic from '../BackgroundMusic/BackgroundMusic';
 import SplashCursor from '../SplashCursor/SplashCursor';
+import Location from '../Location/Location';
 import './AppMain.css';
 
 function AppMain() {
@@ -17,6 +18,7 @@ function AppMain() {
       <Projects />
       <Skills />
       <Contact />
+      <Location />
       <Footer />
       <BackgroundMusic />
       </div>
