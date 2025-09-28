@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer';
 import BackgroundMusic from '../BackgroundMusic/BackgroundMusic';
 import SplashCursor from '../SplashCursor/SplashCursor';
 import Location from '../Location/Location';
+import IconCloudDemo from '../IconCloudDemo/IconCloudDemo';
 import './AppMain.css';
 
 function AppMain() {
@@ -16,6 +17,7 @@ function AppMain() {
       <Header />
       <Hero />
       <Projects />
+      <IconCloudDemo />
       <Skills />
       <Contact />
       <Location />

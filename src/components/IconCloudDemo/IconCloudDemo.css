@@ -1,0 +1,128 @@
+.demo-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 600px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  padding: 0 80px 80px 80px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.icon-cloud-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .demo-container {
+    background-color: #1f2937;
+    border-color: #374151;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Tag canvas styles */
+.tagcanvas {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .demo-container {
+    max-width: 100%;
+    height: 300px;
+    padding: 0 40px 60px 40px;
+    margin: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .demo-container {
+    height: 250px;
+    padding: 0 20px 40px 20px;
+  }
+}
+
+/* Animation for smooth loading */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.demo-container {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Custom scrollbar for the container */
+.demo-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.demo-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.demo-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.demo-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Dark theme scrollbar */
+@media (prefers-color-scheme: dark) {
+  .demo-container::-webkit-scrollbar-track {
+    background: #374151;
+  }
+
+  .demo-container::-webkit-scrollbar-thumb {
+    background: #6b7280;
+  }
+
+  .demo-container::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+  }
+}
+
+/* Focus styles for accessibility */
+.demo-container:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .demo-container {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .demo-container {
+    animation: none;
+  }
+  
+  .tagcanvas {
+    transition: none;
+  }
+}
