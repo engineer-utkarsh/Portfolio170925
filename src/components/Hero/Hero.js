@@ -88,7 +88,7 @@ const Hero = () => {
       <section id="home" className="hero">
         <div className="hero-content">
           <h1>Hi, I'm Utkarsh Shukla</h1>
-          <p>A passionate Full Stack Developer</p>
+          <p>Utkarsh Shukla architects scalable, low-latency full-stack systems through distributed computing and declarative infrastructure.</p>
         </div>
         <div className="hero-image">
           <img
